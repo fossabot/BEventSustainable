@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b15405e-c4d4-4be8-aeab-4b0cb651dea8" name="Changes" comment="Correzione filtri">
-      <change beforePath="$PROJECT_DIR$/.idea/BEvent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BEvent.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0b15405e-c4d4-4be8-aeab-4b0cb651dea8" name="Changes" comment="Correzione porta e aggiornamenti">
+      <change afterPath="$PROJECT_DIR$/scripts/populate_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BEvent_app/Autenticazione/AutenticazioneController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BEvent_app/Autenticazione/AutenticazioneController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BEvent_app/Autenticazione/AutenticazioneService.py" beforeDir="false" afterPath="$PROJECT_DIR$/BEvent_app/Autenticazione/AutenticazioneService.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BEvent_app/RicercaEvento/RicercaEventoService.py" beforeDir="false" afterPath="$PROJECT_DIR$/BEvent_app/RicercaEvento/RicercaEventoService.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,14 +48,12 @@
     &quot;assignee&quot;: &quot;dariasimonetti&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="c76dac88-ac2b-4c40-a5d9-5977caf89a82" />
-        <option name="url" value="https://github.com/tonylm00/BEvent.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Onil0/BEventSustainable.git&quot;,
+    &quot;accountId&quot;: &quot;c1c4ca84-8f5b-4fd1-ace8-717237cbc6ed&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -73,35 +68,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Flask server.BEvent.executor": "Run",
-    "JavaScript Debug.Login.html.executor": "Run",
-    "JavaScript Debug.Registrazione.html.executor": "Run",
-    "Python tests.Python tests for test_feedback.test_inserisci_recensione_1_4_1.executor": "Run",
-    "Python tests.Python tests for test_feedback.test_inserisci_recensione_1_4_2.executor": "Run",
-    "Python tests.Python tests for test_fornitori.test_aggiungi_servizio_1_6_1.executor": "Run",
-    "Python tests.Python tests for test_fornitori.test_aggiungi_servizio_1_6_2.executor": "Run",
-    "Python tests.Python tests for test_fornitori.test_aggiungi_servizio_1_6_3.executor": "Run",
-    "Python tests.Python tests for test_registrazione_fornitore.test_registra_forn_1_1_1.executor": "Run",
-    "Python tests.Python tests for test_ricerca_evento.test_ricerca_evento_1_5_1.executor": "Run",
-    "Python.AutenticazioneService.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/linux/Projects/BEventSustainable",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Flask server.BEvent.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Login.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Registrazione.html.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_feedback.test_inserisci_recensione_1_4_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_feedback.test_inserisci_recensione_1_4_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_fornitori.test_aggiungi_servizio_1_6_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_fornitori.test_aggiungi_servizio_1_6_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_fornitori.test_aggiungi_servizio_1_6_3.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_registrazione_fornitore.test_registra_forn_1_1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_ricerca_evento.test_ricerca_evento_1_5_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.AutenticazioneService.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/linux/Projects/BEventSustainable&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Flask server.BEvent">
     <configuration name="AutenticazioneService" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BEvent" />
@@ -260,7 +255,13 @@
       <workItem from="1705845558461" duration="320000" />
       <workItem from="1706012519247" duration="295000" />
       <workItem from="1761324655415" duration="55000" />
-      <workItem from="1762352668618" duration="2605000" />
+      <workItem from="1762352668618" duration="3306000" />
+      <workItem from="1762425296356" duration="2165000" />
+      <workItem from="1762618970347" duration="5689000" />
+      <workItem from="1762866652170" duration="832000" />
+      <workItem from="1764079228220" duration="4238000" />
+      <workItem from="1764691833486" duration="3764000" />
+      <workItem from="1764712734965" duration="1152000" />
     </task>
     <task id="LOCAL-00001" summary="correzione autenticazione">
       <option name="closed" value="true" />
@@ -606,7 +607,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705957984109</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Correzione  e aggiornamenti">
+      <option name="closed" value="true" />
+      <created>1762355381430</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1762355381430</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Correzione porta e aggiornamenti">
+      <option name="closed" value="true" />
+      <created>1762866765070</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1762866765070</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Correzione porta e aggiornamenti">
+      <option name="closed" value="true" />
+      <created>1762866879857</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1762866879857</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,8 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ho fatto in modo che le immagini vengano memorizzate nel byte di array in mongodbe ho fatto varie modifiche ai file committati" />
-    <MESSAGE value="modifica area fornitore" />
     <MESSAGE value="Modifica Fornitori Controller" />
     <MESSAGE value="Modifica sessioine" />
     <MESSAGE value="LE IMMAGINI FUNZIONANO BENISSIMO :)))&#10;ho modificato l'area fornitore" />
@@ -649,7 +672,9 @@
     <MESSAGE value="Testing Area Fornitore" />
     <MESSAGE value="Buttone area fornitori" />
     <MESSAGE value="Correzione filtri" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correzione filtri" />
+    <MESSAGE value="Correzione  e aggiornamenti" />
+    <MESSAGE value="Correzione porta e aggiornamenti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correzione porta e aggiornamenti" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BEvent$BEvent.coverage" NAME="BEvent Coverage Results" MODIFIED="1705956971118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -662,7 +687,7 @@
     <SUITE FILE_PATH="coverage/BEvent$Routes.coverage" NAME="Routes Coverage Results" MODIFIED="1703709944928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BEvent_app" />
     <SUITE FILE_PATH="coverage/BEvent$pytest_for_test_crea_evento_pubblico_test_crea_evento_pubblico_1_3_1.coverage" NAME="pytest for test_crea_evento_pubblico.test_crea_evento_pubblico_1_3_1 Coverage Results" MODIFIED="1705850194312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/BEvent$.coverage" NAME=" Coverage Results" MODIFIED="1705842696321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/BEventSustainable$BEvent.coverage" NAME="BEvent Coverage Results" MODIFIED="1762354954518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BEventSustainable$BEvent.coverage" NAME="BEvent Coverage Results" MODIFIED="1764713285704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/BEventSustainable$AutenticazioneService.coverage" NAME="AutenticazioneService Coverage Results" MODIFIED="1762354480369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BEvent_app/Autenticazione" />
   </component>
 </project>
