@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b15405e-c4d4-4be8-aeab-4b0cb651dea8" name="Changes" comment="Correzione porta e aggiornamenti">
-      <change afterPath="$PROJECT_DIR$/scripts/populate_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+    <list default="true" id="0b15405e-c4d4-4be8-aeab-4b0cb651dea8" name="Changes" comment="fix: risolti crash server e loop infiniti su validazione input e sessioni Migliorata gestione errori in visualizza_fornitori (redirect invece di 500). Fix key error su 'Invitati/Posti' nel service. Aggiunto attributo required nei form HTML.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scannerwork/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.scannerwork/report-task.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BEvent_app/GestioneEvento/GestioneEventoService.py" beforeDir="false" afterPath="$PROJECT_DIR$/BEvent_app/GestioneEvento/GestioneEventoService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BEvent_app/InterfacciaPersistenza/Fornitore.py" beforeDir="false" afterPath="$PROJECT_DIR$/BEvent_app/InterfacciaPersistenza/Fornitore.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,6 +263,11 @@
       <workItem from="1764079228220" duration="4238000" />
       <workItem from="1764691833486" duration="3764000" />
       <workItem from="1764712734965" duration="1152000" />
+      <workItem from="1765037812196" duration="1736000" />
+      <workItem from="1765279506445" duration="7828000" />
+      <workItem from="1765315798883" duration="5838000" />
+      <workItem from="1765374072136" duration="4123000" />
+      <workItem from="1765384473114" duration="749000" />
     </task>
     <task id="LOCAL-00001" summary="correzione autenticazione">
       <option name="closed" value="true" />
@@ -631,7 +637,23 @@
       <option name="project" value="LOCAL" />
       <updated>1762866879857</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Correzione porta e aggiornamenti">
+      <option name="closed" value="true" />
+      <created>1765037841837</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1765037841837</updated>
+    </task>
+    <task id="LOCAL-00048" summary="fix: risolti crash server e loop infiniti su validazione input e sessioni Migliorata gestione errori in visualizza_fornitori (redirect invece di 500). Fix key error su 'Invitati/Posti' nel service. Aggiunto attributo required nei form HTML.&quot;">
+      <option name="closed" value="true" />
+      <created>1765383824232</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1765383824232</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modifica Fornitori Controller" />
     <MESSAGE value="Modifica sessioine" />
     <MESSAGE value="LE IMMAGINI FUNZIONANO BENISSIMO :)))&#10;ho modificato l'area fornitore" />
     <MESSAGE value="commit inutile" />
@@ -674,7 +695,8 @@
     <MESSAGE value="Correzione filtri" />
     <MESSAGE value="Correzione  e aggiornamenti" />
     <MESSAGE value="Correzione porta e aggiornamenti" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correzione porta e aggiornamenti" />
+    <MESSAGE value="fix: risolti crash server e loop infiniti su validazione input e sessioni Migliorata gestione errori in visualizza_fornitori (redirect invece di 500). Fix key error su 'Invitati/Posti' nel service. Aggiunto attributo required nei form HTML.&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: risolti crash server e loop infiniti su validazione input e sessioni Migliorata gestione errori in visualizza_fornitori (redirect invece di 500). Fix key error su 'Invitati/Posti' nel service. Aggiunto attributo required nei form HTML.&quot;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BEvent$BEvent.coverage" NAME="BEvent Coverage Results" MODIFIED="1705956971118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -687,7 +709,7 @@
     <SUITE FILE_PATH="coverage/BEvent$Routes.coverage" NAME="Routes Coverage Results" MODIFIED="1703709944928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BEvent_app" />
     <SUITE FILE_PATH="coverage/BEvent$pytest_for_test_crea_evento_pubblico_test_crea_evento_pubblico_1_3_1.coverage" NAME="pytest for test_crea_evento_pubblico.test_crea_evento_pubblico_1_3_1 Coverage Results" MODIFIED="1705850194312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/BEvent$.coverage" NAME=" Coverage Results" MODIFIED="1705842696321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/BEventSustainable$BEvent.coverage" NAME="BEvent Coverage Results" MODIFIED="1764713285704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BEventSustainable$BEvent.coverage" NAME="BEvent Coverage Results" MODIFIED="1765295068714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/BEventSustainable$AutenticazioneService.coverage" NAME="AutenticazioneService Coverage Results" MODIFIED="1762354480369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BEvent_app/Autenticazione" />
   </component>
 </project>

@@ -13,30 +13,38 @@ db = get_db()
 
 def is_valid_data(data):
     """
-    Funzione per verificare che la data inserita sia valida. Viene quindi controllato che la data sia > alla data
-    odierna.
-
-    :param data: (str) data inserita dall'utente nella pagina SceltaEventoDaCreare.html
-
-    :return: True se la data è corretta, False altrimenti
+    Valida la data sia se arriva come stringa (dd-mm-yyyy)
+    sia se arriva come oggetto datetime (formato ISO di MongoDB).
     """
-    date_format_regex = re.compile(r'^\d{2}-\d{2}-\d{4}$')
 
-    if not date_format_regex.match(data):
-        return False, "Formato data non corretto. Utilizzare il formato dd-mm-yyyy."
+    # Caso 1 — la data è un oggetto datetime già convertito dal driver MongoDB
+    if isinstance(data, datetime):
+        datetime_data = data
 
-    try:
-        datetime_data = datetime.strptime(data, '%d-%m-%Y')
+    else:
+        # Deve essere una stringa
+        if not isinstance(data, str):
+            return False, "Formato data non riconosciuto."
 
-        data_odierna = datetime.now()
+        # Regex formato dd-mm-yyyy
+        date_format_regex = re.compile(r'^\d{2}-\d{2}-\d{4}$')
 
-        if datetime_data > data_odierna:
-            return True, "La data è corretta nel formato ed è anche valida."
-        else:
-            return False, "La data non è valida poichè è precedente alla data odierna."
+        if not date_format_regex.match(data):
+            return False, "Formato data non corretto. Usa dd-mm-yyyy."
 
-    except ValueError:
-        return False, "Errore nella conversione della data."
+        # Conversione
+        try:
+            datetime_data = datetime.strptime(data, '%d-%m-%Y')
+        except ValueError:
+            return False, "Errore nella conversione della data."
+
+    # Confronto con data odierna
+    data_odierna = datetime.now()
+
+    if datetime_data > data_odierna:
+        return True, "La data è valida."
+    else:
+        return False, "La data è precedente alla data odierna."
 
 
 def get_fornitori_disponibli(data_richiesta):
@@ -98,42 +106,54 @@ def get_fornitori_disponibli(data_richiesta):
 
 def get_servizi(data_richiesta):
     """
-    Funzione che ottiene dal database tutti i servizi che si possono prenotare in una determinata data, poichè alcuni
-    potrebbero essere impegnati in un evento.
-    -Vengono prese dal databse le collezioni Servizio Offerto e Evento
-    -Viene controllata la versione dei servizi in modo da prendere i servizi la cui versione corrisponde all'ultima
-    rilasciata dal fornitore
-    -Usando la lista di servizi precedentemente filtrati, essi vengono nuovamente filtrati per prendere solo i servizi
-    che non sono prenotati in un evento nella data inserita dall'organizzatore.
+       Funzione che ottiene dal database tutti i servizi che si possono prenotare in una determinata data, poichè alcuni
+       potrebbero essere impegnati in un evento.
+       -Vengono prese dal databse le collezioni Servizio Offerto e Evento
+       -Viene controllata la versione dei servizi in modo da prendere i servizi la cui versione corrisponde all'ultima
+       rilasciata dal fornitore
+       -Usando la lista di servizi precedentemente filtrati, essi vengono nuovamente filtrati per prendere solo i servizi
+       che non sono prenotati in un evento nella data inserita dall'organizzatore.
 
-    :param data_richiesta: (str) stringa che indica la data in cui si vuole creare un evento
+       :param data_richiesta: (str) stringa che indica la data in cui si vuole creare un evento
 
-    :return: lista di oggetti di tipo Servizio Offerto, ovvero i servizi disponibli
+       :return: lista di oggetti di tipo Servizio Offerto, ovvero i servizi disponibli
+       """
     """
-
+    Versione OTTIMIZZATA: Fa solo 2 query al database invece di N query.
+    """
     servizi_collection = db['Servizio Offerto']
     eventi_collection = db['Evento']
 
-    servizi_data = list(
-        servizi_collection.find({'$or': [{'isCurrentVersion': None}, {'isCurrentVersion': {'$exists': False}}]}))
+    # 1. Recupera TUTTI i servizi validi in un colpo solo
+    servizi_data = list(servizi_collection.find({
+        '$or': [{'isCurrentVersion': None}, {'isCurrentVersion': {'$exists': False}}]
+    }))
 
+    # 2. Recupera TUTTI gli eventi che potrebbero bloccare i servizi in quella data
+    eventi_impedienti = list(eventi_collection.find({
+        'Data': data_richiesta,
+        '$or': [
+            {'Ruolo': '2', 'isPagato': True}, # Privato e Pagato
+            {'Ruolo': '1'}                    # Pubblico
+        ]
+    }, {'servizi_associati': 1})) # Prendi solo il campo che serve (ottimizzazione)
+
+    # 3. Crea un "Set" (lista veloce) degli ID occupati
+    id_servizi_occupati = set()
+    for evento in eventi_impedienti:
+        if 'servizi_associati' in evento:
+            for id_servizio in evento['servizi_associati']:
+                id_servizi_occupati.add(str(id_servizio))
+
+    # 4. Filtra i servizi in memoria (molto più veloce del DB)
     lista_servizi = []
-
     for data in servizi_data:
-        servizio = ServizioOfferto(data)
-        evento_associato = eventi_collection.find_one({
-            'servizi_associati': {'$in': [str(servizio._id)]},
-            'Data': data_richiesta,
-            '$or': [
-                {'Ruolo': '2', 'isPagato': True},
-                {'Ruolo': '1'}
-            ]
-        })
-
-        if not evento_associato:
-            lista_servizi.append(servizio)
+        # Se l'ID del servizio NON è nella lista degli occupati, aggiungilo
+        if str(data['_id']) not in id_servizi_occupati:
+            lista_servizi.append(ServizioOfferto(data))
 
     return lista_servizi
+
 
 
 def filtro_categoria_liste(categoria, data):

@@ -26,32 +26,33 @@ class Fornitore(Utente, Observer):
 
     def __init__(self, user_data, fornitore_data):
         """
-               Inizializza un nuovo oggetto Fornitore.
-
-               Args:
-                   user_data (dict): Dati comuni a tutti gli utenti.
-                   fornitore_data (dict): Dati specifici dei fornitori.
-               """
+        Inizializza un nuovo oggetto Fornitore.
+        """
         Utente.__init__(self, user_data)
         Observer.__init__(self)
-        fornitore_info = fornitore_data['Fornitore']
-        self.descrizione = fornitore_info['Descrizione']
-        self.eventi_max_giornalieri = fornitore_info['EventiMassimiGiornaliero']
-        self.orario_lavoro = fornitore_info['OrarioDiLavoro']
 
-        self.foto = []  # Inizializza un elenco vuoto per le immagini
+        # Se manca la chiave "Fornitore", evitare crash
+        fornitore_info = fornitore_data.get('Fornitore', {})
 
-        for foto_base64 in fornitore_info['Foto']:
+        # Campi base – sicuri con get()
+        self.descrizione = fornitore_info.get('Descrizione', "Non specificato")
+        self.eventi_max_giornalieri = fornitore_info.get('EventiMassimiGiornaliero', 0)
+        self.orario_lavoro = fornitore_info.get('OrarioDiLavoro', "Non specificato")
+
+        # Lista foto – se mancano, nessun crash
+        self.foto = []
+        for foto_base64 in fornitore_info.get('Foto', []):
             try:
                 immagine = Image.convert_byte_array_to_image(foto_base64)
                 self.foto.append(immagine)
             except Exception as e:
-                print(f"Errore nella conversione dell'array di byte in immagine: {str(e)}")
+                print(f"Errore nella conversione dell'immagine: {str(e)}")
 
-        self.citta = fornitore_info['Citta']
-        self.via = fornitore_info['Via']
-        self.p_Iva = fornitore_info['Partita_Iva']
-        self.isLocation = fornitore_info['isLocation']
+        # Altri campi – sicuri
+        self.citta = fornitore_info.get('Citta', "Non specificata")
+        self.via = fornitore_info.get('Via', "Non specificata")
+        self.p_Iva = fornitore_info.get('Partita_Iva', "Non specificata")
+        self.isLocation = fornitore_info.get('isLocation', False)
 
     def update(self, observable):
         """
